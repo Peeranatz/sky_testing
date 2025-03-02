@@ -14,3 +14,16 @@ def two_characters(s):
                 ):
                     max_length = max(max_length, len(filtered))
     return max_length
+
+
+class TestTwoCharacters(unittest.TestCase):
+    def test_two_characters(self):
+        self.assertEqual(two_characters("beabeefeab"), 5)
+        self.assertEqual(two_characters("aaaa"), 0)
+        self.assertEqual(two_characters("abcabc"), 4)
+        self.assertEqual(two_characters("ababab"), 6)
+        self.assertEqual(two_characters("a"), 0)  # กรณีสั้นสุด
+        self.assertEqual(two_characters("abababa"), 7)  # กรณีที่ผลลัพธ์เป็น s เอง
+        self.assertEqual(two_characters("aabbcc"), 0)  # ไม่มีตัวอักษร 2 ตัวที่สลับกัน
+        self.assertEqual(two_characters("xyxyxy"), 6)  # ผลลัพธ์ควรเป็นทั้งสตริง
+        self.assertEqual(two_characters("acacacbcbcbc"), 0)  # มีหลายชุดที่เป็นไปได้
