@@ -15,3 +15,14 @@ def grid_challenge(grid):
         )
         else "NO"
     )
+
+
+class TestGridChallenge(unittest.TestCase):
+    def test_grid_challenge(self):
+        self.assertEqual(
+            grid_challenge(["ebacd", "fghij", "olmkn", "trpqs", "xywuv"]), "YES"
+        )
+        self.assertEqual(grid_challenge(["abc", "lmn", "xyz"]), "YES")
+        self.assertEqual(grid_challenge(["zyx", "wvu", "tsr"]), "NO")
+        self.assertEqual(grid_challenge(["a", "z", "m"]), "NO")  # กรณีขนาดเล็กสุด
+        self.assertEqual(grid_challenge(["mnop", "abcd", "efgh", "ijkl"]), "NO")
